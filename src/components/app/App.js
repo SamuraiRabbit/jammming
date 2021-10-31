@@ -16,10 +16,12 @@ class App extends React.Component {
 
       playlistName: "Test Playlist",
 
-      playlistTracks: [{ name: "plName1", artist: "plArtist1", album: "plAlbum1", id: 1 }
-      , { name: "plname2", artist: "plartist2", album: "plalbum2", id: 2 }
-      , { name: "plname3", artist: "plartist3", album: "plalbum3", id: 3 }]
-    }
+      playlistTracks: [{ name: "plName1", artist: "plArtist1", album: "plAlbum1", id: 4 }
+      , { name: "plname2", artist: "plartist2", album: "plalbum2", id: 5 }
+      , { name: "plname3", artist: "plartist3", album: "plalbum3", id: 6 }]
+    };
+
+    this.addTrack = this.addTrack.bind(this);
   }
 
   addTrack(track) {
@@ -39,7 +41,8 @@ class App extends React.Component {
         <div class="App">
           <SearchBar />
           <div class="App-playlist">          
-            <SearchResults searchResults = {this.state.searchResults} />
+            <SearchResults searchResults = {this.state.searchResults}
+                           onAdd = {this.addTrack} />
             <Playlist playlistName = {this.state.playlistName}
                       playlistTracks = {this.state.playlistTracks} />
           </div>
